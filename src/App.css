@@ -1,0 +1,7 @@
+.App {
+  height: calc(80vh - 20px);
+}
+
+.RoutePage {
+  padding: 20px;
+}
