@@ -1,34 +1,26 @@
-import { useState } from 'react';
+import { useState } from "react";
+import ChannelList from "@sendbird/uikit-react/ChannelList";
+import Channel from "@sendbird/uikit-react/Channel";
 
-import { SendbirdProvider } from '@sendbird/uikit-react/SendbirdProvider';
-import ChannelList from '@sendbird/uikit-react/ChannelList';
-import Channel from '@sendbird/uikit-react/Channel';
-
-import './../App.css';
+import "./../App.css";
 
 export default function Team() {
   const [currentChannelUrl, setCurrentChannelUrl] = useState(null);
 
   return (
-    <div className='App'>
-      <SendbirdProvider
-        appId={'B1C2424D-662D-477D-B7D5-5CFD9039CE22'}
-        userId={'hoon751'}
-        nickname={'hoon751'}
-      >
-        <div className='sendbird-app__wrap'>
-          <div className='sendbird-app__channellist-wrap'>
-            <ChannelList
-              onChannelSelect={(channel) => {
-                setCurrentChannelUrl(channel.url);
-              }}
-            />
-          </div>
-          <div className='sendbird-app__conversation-wrap'>
-            <Channel channelUrl={currentChannelUrl} />
-          </div>
+    <div className="App">
+      <div className="sendbird-app__wrap">
+        <div className="sendbird-app__channellist-wrap">
+          <ChannelList
+            onChannelSelect={(channel) => {
+              setCurrentChannelUrl(channel.url);
+            }}
+          />
         </div>
-      </SendbirdProvider>
+        <div className="sendbird-app__conversation-wrap">
+          <Channel channelUrl={currentChannelUrl} />
+        </div>
+      </div>
     </div>
   );
 }
