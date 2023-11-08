@@ -63,6 +63,7 @@ function UserSwitch() {
 
   useEffect(() => {
     if (context.stores?.userStore.initialized) {
+      context?.stores?.sdkStore?.sdk?.reconnect?.();
       if (isPrivate) {
         setUser({ userId: "hoon751", nickname: "hoon751" });
       } else {
